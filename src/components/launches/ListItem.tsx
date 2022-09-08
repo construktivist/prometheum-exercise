@@ -1,9 +1,9 @@
 import { FunctionComponent, useState } from 'react';
 import ListDetails from './ListDetails';
-import { convertUnixTimeToString } from '../helpers';
-import RocketInfo from './RocketInfo';
+import { convertUnixTimeToString } from '../../helpers';
+import RocketInfo from '../rocket-info/RocketInfo';
 
-
+//Props interface type
 interface IProps {
     id: number
     missionName: string
@@ -16,6 +16,7 @@ interface IProps {
     article: string | null
 }
 
+//Accepts past launch props from List and displays information. 
 const ListItem: FunctionComponent<IProps> = props => {
     const { id, 
             missionName, 
@@ -27,17 +28,20 @@ const ListItem: FunctionComponent<IProps> = props => {
             launchDetails,
             article
         } = props;
+
+    //Converts unix timestamp to a formatted string.    
     const convertedDateTime = convertUnixTimeToString(launchDate);
 
+    //State
     const [isVisible, toggleVisible] = useState(false);
 
     return (
         <div id={`listItem-${id}`} className="list-item">
             <div className="list-content">
-                <p>{missionName}</p>
-                <p>{convertedDateTime}</p>
-                <p>{rocketName}</p>
-                <p>{`SUCCESS: ${launchSuccess}`}</p>
+                <p>Mission: {missionName}</p>
+                <p>Launch date: {convertedDateTime}</p>
+                <p>Rocket used: {rocketName}</p>
+                <p>Launch status: {launchSuccess ? 'Success' : 'Failure'}</p>
             </div>
             <div className="expand-button">
                 <button onClick={() => toggleVisible(!isVisible)}>

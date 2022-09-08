@@ -1,3 +1,6 @@
+import { MouseEvent } from 'react';
+
+//Interface for items from GET_PAST_LAUNCHES query response.
 export interface PastLaunchType {
     details: string | null
     id: number
@@ -14,10 +17,12 @@ export interface PastLaunchType {
     }
 }
 
+//Interface for GET_PAST_LAUNCH variables.
 export interface GetPastLaunchesVarsType {
     limit: number
 }
 
+//Interface for items from GET_ROCKET_INFO query response.
 export interface RocketInfoType {
     name: string
     description: string
@@ -40,6 +45,12 @@ export interface RocketInfoType {
     }
 }
 
+//Interface for GET_ROCKET_INFO variables.
 export interface GetRocketInfoVarsType {
     rocketId: number
 }
+
+//Interface for onclick event that occurs on dropdown navigation buttons. 
+export interface DropDownButtonHandlerType {
+    (e: MouseEvent<HTMLButtonElement>): void
+  }

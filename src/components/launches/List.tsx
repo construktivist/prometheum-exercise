@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
-import { PastLaunchType } from '../types/GlobalTypes';
+import { PastLaunchType } from '../../types/GlobalTypes';
 import ListItem from './ListItem'; 
 
-
+//Accepts array for past launches as props from Launches and passes data to ListItem.
 const List: FunctionComponent<{launches: PastLaunchType[]}>  = ({ launches }) => {
     return (
         <div className="list-container">

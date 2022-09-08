@@ -1,3 +1,5 @@
+// Accpets a UNIX timestamp and returns a string of the date formatted as: Day Month Date Year HH:MM:SS GMT Timezone
+// Example output: 'Tue Oct 06 2020 10:31:00 GMT-0500 (Central Daylight Time)'
 export function convertUnixTimeToString(unixTimestamp: number): string { 
     const date: Date = new Date(unixTimestamp * 1000);
     const year = date.getFullYear();

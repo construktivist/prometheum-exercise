@@ -1,33 +1,12 @@
-import { gql, useQuery } from '@apollo/client';
-import List from '../components/List';
+import { FunctionComponent } from 'react';
+import { useQuery } from '@apollo/client';
+import List from '../components/launches/List';
+import { GET_PAST_LAUNCHES } from '../queries'
 import  { GetPastLaunchesVarsType } from '../types/GlobalTypes';
 import  { GetPastLaunchesResponseType } from '../types/APIResponseTypes';
 
-const GET_PAST_LAUNCHES = gql`
-    query GetPastLaunches($limit: Int) {
-        launchesPast(limit: $limit) {
-            details
-            id
-            launch_date_unix
-            launch_site {
-                site_name_long
-            }
-            launch_success
-            links {
-                article_link
-            }
-            mission_name
-            rocket {
-                rocket_name
-                info: rocket {
-                    id
-                }
-            } 
-        }
-    }  
-`;
-
-const Launches: Function = () => {
+//Performs GET_PAST_LAUNCHES query and passes the data as props to List component.
+const Launches: FunctionComponent = () => {
     const { data, loading, error } = useQuery<GetPastLaunchesResponseType, GetPastLaunchesVarsType>(
         GET_PAST_LAUNCHES, 
         { variables: { limit: 20 } }
@@ -45,6 +24,10 @@ const Launches: Function = () => {
         return (
             <List launches={data.launchesPast} />
         )
+    }
+
+    else {
+        return null
     }
 }
 

@@ -1,11 +1,14 @@
 import { FunctionComponent } from 'react';
 
+//Props interface type.
 interface IProps {
     launchSite: string
     launchDetails: string | null,
     article: string | null,
 }
 
+//Accepts additional past launch data as props and displays information.
+//Conditionally rendered based on state in ListItem.
 const ListDetails: FunctionComponent <IProps> = (props) => {
     const { launchSite, launchDetails, article } = props; 
 
