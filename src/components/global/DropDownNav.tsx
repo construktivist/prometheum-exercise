@@ -1,5 +1,6 @@
 import { FunctionComponent, useState } from 'react';
 import { DropDownButtonHandlerType } from '../../types/GlobalTypes'
+import '../../styles/DropDownNav.css';
 
 //Props interface type.
 interface IProps {
@@ -16,13 +17,17 @@ const DropDownNav: FunctionComponent<IProps> = props => {
 
     return (
         <div className="drop-down-nav">
-            <button onClick={() => {toggleVisible(!isVisible)}}>{ primaryLabel }</button>
+            <button className="primary-dd-button" onClick={() => {toggleVisible(!isVisible)}}>{ primaryLabel }</button>
             { isVisible && 
-                <ul>
+                <ul className="dd-list">
                     {downstreamLabels.map((label, index) => {
                         return (
-                            <li key={`${label}-${index}`}>
-                                <button value={label} onClick={(e) => {buttonHandler(e)}}>{label}</button>
+                            <li className="dd-list-item" key={`${label}-${index}`}>
+                                <button className="secondary-dd-button" value={label} onClick={(e) => {
+                                        buttonHandler(e)
+                                        toggleVisible(!isVisible)
+                                    }
+                                }>{label}</button>
                             </li>
                         )
                     })}

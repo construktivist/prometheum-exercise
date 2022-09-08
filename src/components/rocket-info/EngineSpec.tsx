@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react';
+import '../../styles/RocketInfoSection.css';
 
 //Props interface type
 interface IProps {
@@ -25,21 +26,23 @@ const EngineSpec: FunctionComponent<IProps> =  props => {
         <div className="info-container">
             <h3>Engine Specifications:</h3>
             <table>
-                <tr>
-                    <td>Type:</td><td>{type}</td>
-                </tr>
-                <tr>
-                    <td>Version:</td><td>{version}</td>
-                </tr>
-                <tr>
-                    <td>Number:</td><td>{number}</td>
-                </tr>
-                <tr>
-                    <td>Propellants:</td><td>{propellant1} and {propellant2}</td>
-                </tr>
-                <tr>
-                    <td>Thrust to Weight</td><td>{thrustToWeight}</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>Type:</td><td>{type}</td>
+                    </tr>
+                    <tr>
+                        <td>Version:</td><td>{version}</td>
+                    </tr>
+                    <tr>
+                        <td>Number:</td><td>{number}</td>
+                    </tr>
+                    <tr>
+                        <td>Propellants:</td><td>{propellant1} and {propellant2}</td>
+                    </tr>
+                    <tr>
+                        <td>Thrust to Weight</td><td>{thrustToWeight}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     )

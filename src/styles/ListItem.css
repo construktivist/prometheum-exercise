@@ -1,0 +1,33 @@
+.list-item {
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.list-item h3 {
+    margin: 0 0 20px;
+}
+
+.list-button-container {
+    display: flex;
+    justify-content: center;
+} 
+
+.list-button {
+    background-color: rgb(26, 26, 26);
+    color: white;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    width: 220px;
+    border: none;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.list-button:hover {
+    background-color: white;
+    color: rgb(26, 26, 26);
+    border: 1px solid rgb(26, 26, 26);
+}

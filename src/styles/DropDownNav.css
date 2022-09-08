@@ -1,0 +1,49 @@
+.drop-down-nav {
+    position: relative;
+}
+
+.primary-dd-button {
+    background-color: rgb(26, 26, 26);
+    color: white;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    width: 220px;
+    border: none;
+    margin: 0 auto;
+}
+
+.primary-dd-button:hover {
+    background-color: white;
+    color: rgb(26, 26, 26);
+    border: 1px solid rgb(26, 26, 26);
+}
+
+.secondary-dd-button {
+    background-color: white;
+    color: rgb(26, 26, 26);
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+    margin: 0 auto;
+}
+
+.secondary-dd-button:hover {
+    background-color: gray;
+    color: white;
+}
+
+.dd-list {
+    width: 220px;
+    background-color: white;
+    border: 1px solid rgb(26, 26, 26);
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+
+

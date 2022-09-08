@@ -3,10 +3,12 @@ import { useQuery } from '@apollo/client';
 import { GET_ROCKET_INFO } from '../../queries' 
 import { GetRocketInfoResponseType } from '../../types/APIResponseTypes';
 import { GetRocketInfoVarsType, DropDownButtonHandlerType } from '../../types/GlobalTypes';
-import  DropDownNav from '../global/DropDownNav';
+import Loading from '../global/Loading';
+import Error from '../global/Error';
+import DropDownNav from '../global/DropDownNav';
 import RocketDescription from './RocketDescription';
 import RocketSpec from './RocketSpec';
-import EngineSpec from './EngineSpec'
+import EngineSpec from './EngineSpec';
 
 //Queries GET_ROCKET_INFO and passes response as props to RocketDescription, RocketSpec and EngineSpec components.
 const RocketInfo: FunctionComponent<{ rocketId: number }> = ({ rocketId }) => {
@@ -23,22 +25,20 @@ const RocketInfo: FunctionComponent<{ rocketId: number }> = ({ rocketId }) => {
     //Button handler for buttons located in DropDownNav component
     const rocketInfoNavHandler: DropDownButtonHandlerType = (e) => {
         const buttonValue = e.currentTarget.value.toLowerCase();
-        console.log(buttonValue);
         setDisplayInfo(buttonValue);
     }
 
     if(loading) {
-        return <p>loading...</p>
+        return <Loading />
     }
 
     if(error) {
-        return <p>error!</p>
+        return <Error />
     }
 
     if (data) {
         return (
           <div className="rocket-info-container">
-            <h3>{data.rocket.name}</h3>
             <DropDownNav 
                 primaryLabel={'Rocket Info'}
                 downstreamLabels={['Description', 'Rocket Specifications', 'Engine Specifications']}

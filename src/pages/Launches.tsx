@@ -1,7 +1,10 @@
 import { FunctionComponent } from 'react';
 import { useQuery } from '@apollo/client';
 import List from '../components/launches/List';
-import { GET_PAST_LAUNCHES } from '../queries'
+import Jumbotron from '../components/global/Jumbotron';
+import Loading from '../components/global/Loading';
+import Error from '../components/global/Error';
+import { GET_PAST_LAUNCHES } from '../queries';
 import  { GetPastLaunchesVarsType } from '../types/GlobalTypes';
 import  { GetPastLaunchesResponseType } from '../types/APIResponseTypes';
 
@@ -13,16 +16,19 @@ const Launches: FunctionComponent = () => {
     );
 
     if(loading) {
-        return <p>loading...</p>
+        return <Loading />
     }
 
     if(error) {
-        return <p>error!</p>
+        return <Error />
     }
 
     if (data) {
         return (
-            <List launches={data.launchesPast} />
+            <div className="row">
+                <Jumbotron heading="SpaceX: Past Launches" />
+                <List launches={data.launchesPast} />
+            </div>
         )
     }
 
