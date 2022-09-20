@@ -11,7 +11,7 @@ import RocketSpec from './RocketSpec';
 import EngineSpec from './EngineSpec';
 
 //Queries GET_ROCKET_INFO and passes response as props to RocketDescription, RocketSpec and EngineSpec components.
-const RocketInfo: FunctionComponent<{ rocketId: number }> = ({ rocketId }) => {
+const RocketInfo: FunctionComponent<{ rocketId: string }> = ({ rocketId }) => {
 
     //Apollo query
     const { data, loading, error } = useQuery<GetRocketInfoResponseType, GetRocketInfoVarsType>(

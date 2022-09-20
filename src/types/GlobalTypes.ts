@@ -12,7 +12,7 @@ export interface PastLaunchType {
     rocket: { 
         rocket_name: string
         info: {
-            id: number
+            id: string
         }
     }
 }
@@ -47,7 +47,7 @@ export interface RocketInfoType {
 
 //Interface for GET_ROCKET_INFO variables.
 export interface GetRocketInfoVarsType {
-    rocketId: number
+    rocketId: string
 }
 
 //Interface for onclick event that occurs on dropdown navigation buttons. 

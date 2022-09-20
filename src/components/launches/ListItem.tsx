@@ -9,7 +9,7 @@ interface IProps {
     id: number
     missionName: string
     launchDate: number
-    rocketId: number
+    rocketId: string
     rocketName: string
     launchSuccess: boolean
     launchSite: string
